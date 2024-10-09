@@ -35,7 +35,7 @@
 
    - npm install
 
-- Configurez les variables d'environnement en créant un fichier .env à la racine du projet :
+:) Configurez les variables d'environnement en créant un fichier .env à la racine du projet :
 
 
 - PORT=8000
