@@ -56,9 +56,23 @@ Authentification : OAuth Google, JWT
 Notifications : Push, SMS
 
 
-![Capture d'écran](./frontdebut/src/assets/img1.jpg)
-![Capture d'écran](./frontdebut/src/assets/img2.jpg)
-![Capture d'écran](./frontdebut/src/assets/img3.jpg)
-![Capture d'écran](./frontdebut/src/assets/img4.jpg)
-![Capture d'écran](./frontdebut/src/assets/img5.jpg)
-![Capture d'écran](./frontdebut/src/assets/img6.jpg)
+<div style="display: flex; justify-content: space-between; flex-wrap: wrap;">
+    <div style="flex: 1 1 30%; margin: 5px;">
+        <img src="./frontdebut/src/assets/img1.jpg" alt="Image 1" style="width: 100%; height: auto;">
+    </div>
+    <div style="flex: 1 1 30%; margin: 5px;">
+        <img src="./frontdebut/src/assets/img2.jpg" alt="Image 2" style="width: 100%; height: auto;">
+    </div>
+    <div style="flex: 1 1 30%; margin: 5px;">
+        <img src="./frontdebut/src/assets/img3.jpg" alt="Image 3" style="width: 100%; height: auto;">
+    </div>
+    <div style="flex: 1 1 30%; margin: 5px;">
+        <img src="./frontdebut/src/assets/img4.jpg" alt="Image 4" style="width: 100%; height: auto;">
+    </div>
+    <div style="flex: 1 1 30%; margin: 5px;">
+        <img src="./frontdebut/src/assets/img5.jpg" alt="Image 5" style="width: 100%; height: auto;">
+    </div>
+    <div style="flex: 1 1 30%; margin: 5px;">
+        <img src="./frontdebut/src/assets/img6.jpg" alt="Image 6" style="width: 100%; height: auto;">
+    </div>
+</div>
