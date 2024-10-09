@@ -17,17 +17,16 @@ const HomeScreen = () => {
   return (
     <View style={styles.container}>
       <Image source={require("../assets/logo.png")} style={styles.logo} />
-      <Image source={require("../assets/man.jpg")} style={styles.bannerImage} />
-      <Text style={styles.title}>Lorem ipsum dolor.</Text>
+      <Image source={require("../assets/malade1.jpg")} style={styles.bannerImage} />
+      <Text style={styles.title}>HelpMed.</Text>
       <Text style={styles.subTitle}>
-        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore 
+      The application that helps you take your medication, your medical treatments and your upcoming medical appointments.
       </Text>
       <View style={styles.buttonContainer}>
         <TouchableOpacity
           style={[
             styles.loginButtonWrapper,
-            { backgroundColor: colors.primary },
+            { backgroundColor: '#111' },
           ]}
           onPress={handleLogin}
         >
@@ -53,14 +52,13 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   logo: {
-    height: 40,
-    width: 140,
-    marginVertical: 30,
+    height: 150,
+    width: 150,
   },
   bannerImage: {
     marginVertical: 20,
     height: 250,
-    width: 231,
+    width: '100%',
   },
   title: {
     fontSize: 40,

@@ -13,6 +13,9 @@ const GoogleStrategy = require('passport-google-oauth20').Strategy;
 const patientModel = require('./models/patients'); 
 
 const patientsRoutes = require("./routes/patients.route");
+const medicamentRoutes = require("./routes/medicaments.route");
+// const traitementRoutes = require("./routes/traitements.route");
+// const RendezVousRoutes = require("./routes/rendezVous.route");
 
 
 require('./config/db');
@@ -20,7 +23,6 @@ require('./config/db');
 app.use(express.json());
 
 const corsOptions = {
-  origin: ['http://10.60.121.162:8081'],
   credentials: true,
   'allowedHeaders': ['sessionId', 'Content-Type', 'Authorization'],
   'exposedHeaders': ['sessionId'],
@@ -86,6 +88,9 @@ try {
 
 
 app.use("/api/patient", patientsRoutes);
+app.use("/api/medicament", medicamentRoutes);
+// app.use("/api/traitement", traitementRoutes);
+// app.use("/api/rendez-vous", RendezVousRoutes);
 
 
 

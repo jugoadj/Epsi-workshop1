@@ -1,4 +1,4 @@
-const Medicament = require('../models/medicament.model');
+const Medicament = require('../models/medicaments');
 
 // Créer un nouveau médicament
 module.exports.createMedicament = async (req, res) => {

@@ -36,7 +36,7 @@ const SignupScreen = () => {
       }
 
       try {
-          const response = await fetch('http://localhost:8000/api/patient/signup', { // Remplacez YOUR_API_URL par l'URL de votre API
+          const response = await fetch('http://192.168.1.96:8000/api/patient/signup', { 
               method: 'POST',
               headers: {
                   'Content-Type': 'application/json',
@@ -53,10 +53,10 @@ const SignupScreen = () => {
               // Code de validation envoyé avec succès
               Alert.alert("Succès", data.message);
               // Naviguez vers la page de validation du code
-              navigation.navigate("VALIDATE_CODE", { email }); // Assurez-vous de définir la navigation vers la page de validation
+              navigation.navigate("VALIDATION_CODE", { email }); // Assurez-vous de définir la navigation vers la page de validation
           } else {
               // Affichez une erreur
-              Alert.alert("Erreur", data.errors.message);
+              Alert.alert(response.error, data.errors.message);
           }
       } catch (error) {
           Alert.alert("Erreur", "Une erreur inattendue est survenue");
@@ -152,6 +152,8 @@ const styles = StyleSheet.create({
       flex: 1,
       backgroundColor: colors.white,
       padding: 20,
+      paddingTop:120
+
   },
   backButtonWrapper: {
       height: 40,
@@ -163,6 +165,7 @@ const styles = StyleSheet.create({
   },
   textContainer: {
       marginVertical: 20,
+
   },
   headingText: {
       fontSize: 32,
@@ -175,6 +178,8 @@ const styles = StyleSheet.create({
   inputContainer: {
       borderWidth: 1,
       borderColor: colors.secondary,
+      height:60,
+
       borderRadius: 100,
       paddingHorizontal: 20,
       flexDirection: "row",
@@ -242,7 +247,8 @@ const styles = StyleSheet.create({
       fontFamily: fonts.Regular,
   },
   signupText: {
-      color: colors.primary,
+      color: '#000',
       fontFamily: fonts.Bold,
+      textDecorationLine:"underline"
   },
 });
