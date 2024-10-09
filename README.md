@@ -1,75 +1,34 @@
-HeplHealth - Application de Gestion des Patients et Suivi Médical
-HeplHealth est une application mobile et serveur backend permettant de gérer les patients, leurs traitements médicaux, les rendez-vous et les médicaments associés. L'application permet également l'authentification des utilisateurs, notamment via Google, et propose des fonctionnalités de rappel des prises de médicaments et des rendez-vous médicaux.
+# 🏥 EPSI Health - Gestion des Patients et Médicaments
 
-Fonctionnalités
-Gestion des Patients
-Création, modification, et suppression de patients.
-Gestion des informations personnelles des patients.
-Gestion des Médicaments
-Ajout, modification et suppression des médicaments.
-Gestion des informations telles que le nom, type, description, dosage, etc.
-Gestion des Traitements
-Création de traitements médicaux pour les patients.
-Gestion des médicaments dans un traitement, incluant les doses et fréquences.
-Gestion des Rendez-vous
-Ajout, modification et suppression des rendez-vous médicaux.
-Rappel des rendez-vous pour les patients.
-Authentification et Sécurité
-Authentification via e-mail et mot de passe.
-Authentification via Google OAuth 2.0.
-Génération de tokens JWT pour la gestion des sessions.
-Notifications et Rappels
-Notifications push pour les rappels de médicaments.
-Alertes pour les rendez-vous médicaux.
-Technologies Utilisées
-Backend
-Node.js avec Express pour la création des API.
-MongoDB avec Mongoose pour la gestion de la base de données.
-JWT (JSON Web Token) pour la gestion des sessions et de l'authentification.
-Passport.js pour l'authentification OAuth (Google).
-Bcrypt pour le hachage des mots de passe.
-Frontend Mobile
-React Native avec Expo pour le développement de l'application mobile.
-Push Notifications et Alerts pour les rappels et notifications des utilisateurs.
-Base de Données
-MongoDB Atlas pour la gestion des données à distance.
-Modèles de base de données pour les patients, médicaments, traitements et rendez-vous.
-Prérequis
-Backend
-Node.js (version 14 ou supérieure)
-MongoDB Atlas ou serveur MongoDB local
-Google API credentials pour l'authentification OAuth
-Frontend Mobile
-Expo CLI installé
-Compte Expo pour le déploiement
-Installation
-Clonez le dépôt :
-bash
-Copy code
-git clone https://github.com/ton-compte/heplhealth.git
-cd heplhealth/server
-Installez les dépendances du backend :
-bash
-Copy code
-npm install
-Configurez les variables d'environnement dans un fichier .env :
-bash
-Copy code
-TOKEN_SECRET=your_jwt_secret
-MONGO_URI=your_mongodb_atlas_uri
-GOOGLE_CLIENT_ID=your_google_client_id
-GOOGLE_CLIENT_SECRET=your_google_client_secret
-PORT=3000
-Démarrez le serveur :
-bash
-Copy code
-npm start
-Installez les dépendances du frontend dans le dossier mobile :
-bash
-Copy code
-cd ../mobile
-npm install
-Démarrez l'application mobile avec Expo :
-bash
-Copy code
-npx expo start
+![Node.js](https://img.shields.io/badge/Node.js-18.x-green?style=flat-square&logo=node.js) 
+![Express](https://img.shields.io/badge/Express-4.x-blue?style=flat-square&logo=express) 
+![MongoDB](https://img.shields.io/badge/MongoDB-5.x-brightgreen?style=flat-square&logo=mongodb) 
+![React Native](https://img.shields.io/badge/React%20Native-0.71-blue?style=flat-square&logo=react) 
+![Expo](https://img.shields.io/badge/Expo-49.x-black?style=flat-square&logo=expo) 
+
+**EPSI Health** est une application de gestion des patients et de suivi des médicaments pour accompagner les utilisateurs dans leur traitement médical via des rappels et notifications.
+
+---
+
+## 📑 Fonctionnalités Principales
+
+- **Gestion des Patients** : Créer, modifier, supprimer et gérer les informations des patients.
+- **Gestion des Médicaments** : Créer, modifier, supprimer et gérer les informations des médicaments.
+- **Suivi des Traitements** : Assigner des traitements aux patients avec des rappels automatiques.
+- **Rendez-vous Médicaux** : Gérer les rendez-vous, avec lieu, date, et motif.
+- **Notifications** : Alertes et rappels pour les prises de médicaments et rendez-vous.
+
+---
+
+## ⚙️ Installation
+
+1. Clonez ce repository :
+
+   ```bash
+   git clone https://github.com/votre-username/epsi-health.git
+🚀 Technologies Utilisées
+Backend : Node.js, Express
+Base de Données : MongoDB avec Mongoose
+Frontend : React Native (Expo)
+Authentification : OAuth Google, JWT
+Notifications : Push, SMS
