@@ -26,9 +26,32 @@
 
    ```bash
    git clone https://github.com/votre-username/epsi-health.git
+
+2. Accédez au dossier du projet :
+
+cd EPSIHEPLHEALTH
+
+3. Installez les dépendances du serveur :
+
+npm install
+Configurez les variables d'environnement en créant un fichier .env à la racine du projet :
+
+env
+Copy code
+PORT=8000
+MONGODB_URI=mongodb+srv://<username>:<password>@cluster.mongodb.net/epsi-health
+TOKEN_SECRET=your_secret_key
+GOOGLE_CLIENT_ID=your_google_client_id
+GOOGLE_CLIENT_SECRET=your_google_client_secret
+
+4. Lancez l'application :
+
+npm start
+
 🚀 Technologies Utilisées
 Backend : Node.js, Express
 Base de Données : MongoDB avec Mongoose
 Frontend : React Native (Expo)
 Authentification : OAuth Google, JWT
 Notifications : Push, SMS
+
