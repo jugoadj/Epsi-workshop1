@@ -16,6 +16,21 @@ require('./config/db');
 
 app.use(express.json());
 
+const corsOptions = {
+  origin: [process.env.CLIENT_URL, 'http://10.0.2.2:19000', 'http://localhost:19000'],
+  credentials: true,
+  'allowedHeaders': ['sessionId', 'Content-Type', 'Authorization'],
+  'exposedHeaders': ['sessionId'],
+  'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
+  'preflightContinue': false
+}
+
+app.use(cors(corsOptions));
+app.use(express.json())
+app.use(bodyparser.json());
+app.use(bodyparser.urlencoded({ extended: true }));
+app.use(cookieParser());                                                                
+
 app.use(session({
   secret: process.env.TOKEN_SECRET,
   resave: false,
@@ -24,6 +39,8 @@ app.use(session({
 
 app.use(passport.initialize());
 app.use(passport.session());
+
+
 
 passport.use(new GoogleStrategy({
   clientID: process.env.GOOGLE_CLIENT_ID,  
