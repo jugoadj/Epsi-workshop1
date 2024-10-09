@@ -29,13 +29,13 @@
 
 2. Accédez au dossier du projet :
 
-cd EPSIHEPLHEALTH
+   - cd EPSIHEPLHEALTH
 
 3. Installez les dépendances du serveur :
 
-npm install
+   - npm install
 
-- **Configurez les variables d'environnement en créant un fichier .env à la racine du projet :**
+- Configurez les variables d'environnement en créant un fichier .env à la racine du projet :
 
 
 - PORT=8000
@@ -46,7 +46,7 @@ npm install
 
 4. Lancez l'application :
 
-npm start
+   - npm start
 
 🚀 Technologies Utilisées
 Backend : Node.js, Express
