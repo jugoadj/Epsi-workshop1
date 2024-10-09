@@ -55,3 +55,10 @@ Frontend : React Native (Expo)
 Authentification : OAuth Google, JWT
 Notifications : Push, SMS
 
+
+![Capture d'écran](./frontdebut/src/assets/img1.jpg)
+![Capture d'écran](./frontdebut/src/assets/img2.jpg)
+![Capture d'écran](./frontdebut/src/assets/img3.jpg)
+![Capture d'écran](./frontdebut/src/assets/img4.jpg)
+![Capture d'écran](./frontdebut/src/assets/img5.jpg)
+![Capture d'écran](./frontdebut/src/assets/img6.jpg)
