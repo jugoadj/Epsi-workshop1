@@ -98,16 +98,23 @@ import {
     container: {
       flex: 1,
       padding: 20,
-      paddingTop:60,
+      paddingTop:120,
       backgroundColor: colors.white,
     },
     backButtonWrapper: {
-      marginBottom: 20,
+        height: 40,
+        width: 40,
+        backgroundColor: colors.gray,
+        borderRadius: 20,
+        justifyContent: "center",
+        alignItems: "center",
+        
     },
     headingText: {
       fontSize: 24,
       fontFamily: fonts.SemiBold,
       color: colors.primary,
+      paddingTop:20,
       marginBottom: 20,
     },
     input: {
