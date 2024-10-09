@@ -1,6 +1,9 @@
 const express = require('express');
 const session = require('express-session');
-const passport = require('passport');
+const cors = require('cors');
+const passport = require("passport")
+const bodyparser = require("body-parser");
+const cookieParser = require("cookie-parser");
 
 const app = express();
 const port = 3000; 
@@ -17,7 +20,7 @@ require('./config/db');
 app.use(express.json());
 
 const corsOptions = {
-  origin: [process.env.CLIENT_URL, 'http://10.0.2.2:19000', 'http://localhost:19000'],
+  origin: ['http://10.60.121.162:8081'],
   credentials: true,
   'allowedHeaders': ['sessionId', 'Content-Type', 'Authorization'],
   'exposedHeaders': ['sessionId'],
