@@ -35,7 +35,7 @@ import {
       }
   
       try {
-        const response = await fetch('http://192.168.1.96:8000/api/patient/signup/code', { 
+        const response = await fetch('http://192.168.227.35:8000/api/patient/signup/code', { 
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -68,6 +68,8 @@ import {
   
     return (
       <View style={styles.container}>
+              <Image source={require("../assets/logo.png")} style={styles.logo} />
+
         <Text style={styles.headingText}>Validation du compte</Text>
         
         <View style={styles.formContainer}>
@@ -211,6 +213,10 @@ import {
       fontFamily: fonts.SemiBold,
       textAlign: "center",
       padding: 10,
+    },
+    logo: {
+      height: 150,
+      width: 150,
     },
   });
   

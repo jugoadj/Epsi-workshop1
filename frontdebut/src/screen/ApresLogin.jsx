@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, StyleSheet,Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 
 const PatientHomeScreen = () => {
@@ -11,6 +11,7 @@ const PatientHomeScreen = () => {
 
   return (
     <View style={styles.container}>
+
       <Text style={styles.title}>Bienvenue sur votre espace</Text>
 
       <TouchableOpacity
@@ -72,5 +73,9 @@ const styles = StyleSheet.create({
   blockText: {
     fontSize: 18,
     color: '#fff',
+  },
+  logo: {
+    height: 150,
+    width: 150,
   },
 });

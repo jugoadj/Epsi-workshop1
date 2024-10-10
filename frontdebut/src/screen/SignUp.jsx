@@ -36,7 +36,7 @@ const SignupScreen = () => {
       }
 
       try {
-          const response = await fetch('http://192.168.1.96:8000/api/patient/signup', { 
+          const response = await fetch('http://192.168.227.35:8000/api/patient/signup', { 
               method: 'POST',
               headers: {
                   'Content-Type': 'application/json',
@@ -65,6 +65,7 @@ const SignupScreen = () => {
 
   return (
       <View style={styles.container}>
+
           <TouchableOpacity style={styles.backButtonWrapper} onPress={handleGoBack}>
               <Ionicons
                   name={"arrow-back-outline"}
@@ -250,5 +251,9 @@ const styles = StyleSheet.create({
       color: '#000',
       fontFamily: fonts.Bold,
       textDecorationLine:"underline"
+  },
+  logo: {
+    height: 150,
+    width: 150,
   },
 });

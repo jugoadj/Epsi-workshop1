@@ -10,12 +10,27 @@ const medicamentSchema = new mongoose.Schema({
     },
     type: { 
         type: String,
-         required: true 
+        required: true 
     }, 
     dosage: { 
         type: String, 
         required: true 
     }, 
+    frequencePrise: { 
+        type: Number,  // Ex : 3 fois par jour
+        required: true 
+    },
+    heuresPrise: [{
+        type: Date,  // Les heures spécifiques de prise de médicaments chaque jour
+        required: true
+    }],
+    debutPrise: {
+        type: Date,  // Date de début du traitement
+        required: true
+    },
+    finPrise: {
+        type: Date,  // Date de fin du traitement ou de la prescription
+    },
     created_at: { 
         type: Date, 
         default: Date.now 

@@ -39,7 +39,7 @@ const LoginScreen = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch("http://192.168.1.96:8000/api/patient/login", {
+      const response = await fetch("http://192.168.227.35:8000/api/patient/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -66,6 +66,7 @@ const LoginScreen = () => {
 
   return (
     <View style={styles.container}>
+
       <TouchableOpacity style={styles.backButtonWrapper} onPress={handleGoBack}>
         <Ionicons name={"arrow-back-outline"} color={colors.primary} size={25} />
       </TouchableOpacity>
@@ -235,4 +236,5 @@ const styles = StyleSheet.create({
     fontFamily: fonts.Bold,
     textDecorationLine: "underline",
   },
+ 
 });
