@@ -28,6 +28,7 @@ const medicamentSchema = new mongoose.Schema({
         type: Date,  // Date de début du traitement
         required: true
     },
+
     created_at: { 
         type: Date, 
         default: Date.now 

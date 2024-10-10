@@ -168,6 +168,7 @@ const CreateMedicamentScreen = () => {
       <TouchableOpacity style={styles.input} onPress={showDatePicker}>
         <Text>{selectedDate ? `Date de prise : ${selectedDate}` : 'Sélectionner une date'}</Text>
       </TouchableOpacity>
+      
       <TextInput
         style={styles.input}
         placeholder="Nombre de fois par jour (ex: 2)"

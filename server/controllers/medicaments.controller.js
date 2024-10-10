@@ -36,7 +36,7 @@ module.exports.updateMedicament = async (req, res) => {
     const { nom, description, type, dosage, frequencePrise, heuresPrise, debutPrise, finPrise } = req.body;
 
     // Vérification des champs obligatoires
-    if (!nom || !type || !dosage || !frequencePrise || !heuresPrise || !debutPrise) {
+    if (!nom || !type || !dosage || !frequencePrise || !heuresPrise || !debutPrise || !finprise) {
         return res.status(400).json({ error: "Veuillez fournir tous les champs obligatoires : nom, type, dosage, fréquence, heures de prise, début de prise" });
     }
 

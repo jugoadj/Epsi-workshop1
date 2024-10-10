@@ -59,7 +59,6 @@ const MedicamentListScreen = () => {
         </Text>
       )}
       <Text style={styles.itemText}>Début de prise : {formatDate(item.debutPrise)}</Text>
-      <Text style={styles.itemText}>Fin de prise : {formatDate(item.finPrise)}</Text>
     </TouchableOpacity>
   );
 
