@@ -2,7 +2,7 @@ const Medicament = require('../models/medicaments');
 
 // Créer un nouveau médicament
 module.exports.createMedicament = async (req, res) => {
-    const { nom, description, type, dosage, frequencePrise, heuresPrise, debutPrise, finPrise } = req.body;
+    const { nom, description, type, dosage, frequencePrise, heuresPrise, debutPrise } = req.body;
 
     // Vérification des champs obligatoires
     if (!nom || !type || !dosage || !frequencePrise || !heuresPrise || !debutPrise) {
@@ -19,7 +19,7 @@ module.exports.createMedicament = async (req, res) => {
             frequencePrise,
             heuresPrise,
             debutPrise,
-            finPrise
+            
         });
 
         await medicament.save();
@@ -76,3 +76,13 @@ module.exports.deleteMedicament = async (req, res) => {
         res.status(400).json({ error: err.message });
     }
 };
+
+module.exports.showallmed = async (req, res) => {
+    try {
+        const medicaments = await Medicament.find(); // Trouve tous les médicaments
+        res.status(200).json(medicaments); // Renvoie les médicaments en JSON
+    } catch (error) {
+        console.error('Erreur lors de la récupération des médicaments:', error);
+        res.status(500).json({ error: 'Une erreur est survenue lors de la récupération des médicaments.' });
+    }
+}

@@ -28,9 +28,6 @@ const medicamentSchema = new mongoose.Schema({
         type: Date,  // Date de début du traitement
         required: true
     },
-    finPrise: {
-        type: Date,  // Date de fin du traitement ou de la prescription
-    },
     created_at: { 
         type: Date, 
         default: Date.now 

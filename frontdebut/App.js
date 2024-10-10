@@ -12,6 +12,7 @@ import Traitement from "./src/screen/Traitement";
 import Profile from "./src/screen/Profile";
 import Medicament from "./src/screen/Medicament";
 import apresLogin from "./src/screen/ApresLogin";
+import allMed from "./src/screen/allmedicament";
 
 const Stack = createNativeStackNavigator();
 
@@ -30,6 +31,7 @@ export default function App() {
         <Stack.Screen name="VALIDATION_CODE" component={ValidationCode} />
          <Stack.Screen name="MEDICAMENT" component={Medicament} />
          <Stack.Screen name="APRESLOGIN" component={apresLogin} />
+         <Stack.Screen name="AllMED" component={allMed} />
         {/* <Stack.Screen name="RENDEZVOUS" component={RendezVous} />
         <Stack.Screen name="TRAITEMENT" component={Traitement} />
         <Stack.Screen name="PROFILE" component={Profile} />  */}

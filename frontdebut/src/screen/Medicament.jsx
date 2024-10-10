@@ -36,38 +36,49 @@ const CreateMedicamentScreen = () => {
   };
 
   const handleCreateMedicament = async () => {
-    if (!nom || !type || !dosage || !selectedDate || !selectedTime || !frequency) {
-      Alert.alert('Erreur', 'Veuillez fournir tous les champs obligatoires.');
-      return;
+    if (!nom || !type || !dosage || !selectedDate || !selectedTime || !frequency ) {
+        Alert.alert('Erreur', 'Veuillez fournir tous les champs obligatoires.');
+        return;
     }
-  
+
     try {
-      const response = await fetch('http://192.168.227.35:8000/api/medicament/createmed', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          nom,
-          description,
-          type,
-          dosage,
-          frequencePrise: frequency,
-          heuresPrise: frequency >= 2 ? [selectedTime, secondTime] : [selectedTime],
-          debutPrise: selectedDate,
-          finPrise: selectedEndDate,
-        }),
-      });
-  
-      const data = await response.json();
-  
-      if (response.ok) {
-        Alert.alert('Succès', 'Médicament créé avec succès');
-      } else {
-        Alert.alert('Erreur', data.error || 'Une erreur est survenue lors de la création du médicament.');
-      }
+        const debutPrise = moment(selectedDate).toISOString(); // Format ISO
+
+        const heuresPrise = [moment(selectedTime, 'HH:mm').toISOString()]; // Format ISO
+
+        // Convertir la fréquence en nombre
+        const freq = Number(frequency);
+        if (freq >= 2 && secondTime) {
+            heuresPrise.push(moment(secondTime, 'HH:mm').toISOString()); // Ajouter la deuxième heure si défini
+        }
+
+        const response = await fetch('http://192.168.227.35:8000/api/medicament/createmed', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({
+                nom,
+                description,
+                type,
+                dosage,
+                frequencePrise: freq,
+                heuresPrise,
+                debutPrise,
+                
+            }),
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            Alert.alert('Succès', 'Médicament créé avec succès');
+            navigation.goBack(); // Rediriger ou réinitialiser les champs après la création
+        } else {
+            Alert.alert('Erreur', data.error || 'Une erreur est survenue lors de la création du médicament.');
+        }
     } catch (error) {
-      Alert.alert('Erreur', 'Une erreur inattendue est survenue.');
+        Alert.alert('Erreur', 'Une erreur inattendue est survenue.');
     }
   };
 
@@ -112,6 +123,9 @@ const CreateMedicamentScreen = () => {
     hideSecondTimePicker();
   };
 
+  const handleShowMed = () => {
+    navigation.navigate("AllMED");
+  };
   return (
     <View style={styles.container}>
       <TouchableOpacity style={styles.backButtonWrapper} onPress={handleGoBack}>
@@ -141,6 +155,7 @@ const CreateMedicamentScreen = () => {
           <Picker.Item label="Comprimé" value="comprime" />
           <Picker.Item label="Capsule" value="capsule" />
           <Picker.Item label="Bouteille" value="bouteille" />
+          <Picker.Item label="injection" value="injections" />
         </Picker>
       </View>
       <TextInput
@@ -195,8 +210,10 @@ const CreateMedicamentScreen = () => {
         onCancel={hideSecondTimePicker}
       />
 
-      
-
+<TouchableOpacity  onPress={handleShowMed}>
+   
+<Text style={styles.endingText}>Voir tous mes medicaments</Text>
+</TouchableOpacity>
       <TouchableOpacity style={styles.button} onPress={handleCreateMedicament}>
         <Text style={styles.buttonText}>Créer le médicament</Text>
       </TouchableOpacity>
@@ -223,6 +240,13 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontFamily: fonts.SemiBold,
     color: colors.primary,
+    paddingTop: 20,
+    marginBottom: 20,
+  },
+  endingText: {
+    fontSize: 14,
+    fontFamily: fonts.SemiBold,
+    color: "#000",
     paddingTop: 20,
     marginBottom: 20,
   },
