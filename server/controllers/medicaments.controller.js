@@ -1,4 +1,5 @@
 const Medicament = require('../models/medicaments');
+const moment = require('moment'); 
 
 // Créer un nouveau médicament
 module.exports.createMedicament = async (req, res) => {
@@ -79,10 +80,35 @@ module.exports.deleteMedicament = async (req, res) => {
 
 module.exports.showallmed = async (req, res) => {
     try {
-        const medicaments = await Medicament.find(); // Trouve tous les médicaments
-        res.status(200).json(medicaments); // Renvoie les médicaments en JSON
+        // Obtenir la date actuelle
+        const today = moment().startOf('day'); // Début de la journée actuelle
+        const endOfDay = moment().endOf('day'); // Fin de la journée actuelle
+
+        // Début et fin de la semaine actuelle
+        const startOfWeek = moment().startOf('week'); // Début de la semaine
+        const endOfWeek = moment().endOf('week'); // Fin de la semaine
+
+        // Récupérer les médicaments de la journée
+        const medsOfDay = await Medicament.find({
+            heuresPrise: { $gte: today.toDate(), $lte: endOfDay.toDate() }, // Médicaments pris aujourd'hui
+            // Optionnel : tu peux ajouter des conditions supplémentaires comme la fréquence de prise ici
+        });
+
+        // Récupérer les médicaments de la semaine
+        const medsOfWeek = await Medicament.find({
+            debutPrise: { $lte: endOfWeek.toDate() },  // Médicaments commencés avant la fin de la semaine
+            finPrise: { $gte: startOfWeek.toDate() }, // Médicaments toujours en cours cette semaine
+            // Optionnel : ajuster la condition de la fréquence si nécessaire
+        });
+
+        // Renvoie les deux listes de médicaments
+        res.status(200).json({
+            medsOfDay,
+            medsOfWeek
+        });
+
     } catch (error) {
         console.error('Erreur lors de la récupération des médicaments:', error);
         res.status(500).json({ error: 'Une erreur est survenue lors de la récupération des médicaments.' });
     }
-}
+};

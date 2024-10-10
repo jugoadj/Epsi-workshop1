@@ -11,10 +11,12 @@ import { colors } from '../utils/colors';
 import { fonts } from '../utils/fonts';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import { useNavigation } from '@react-navigation/native';
+import moment from 'moment';
 
 const MedicamentListScreen = () => {
   const navigation = useNavigation();
-  const [medicaments, setMedicaments] = useState([]);
+  const [medsToday, setMedsToday] = useState([]);
+  const [medsThisWeek, setMedsThisWeek] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -25,7 +27,9 @@ const MedicamentListScreen = () => {
           throw new Error('Erreur lors de la récupération des médicaments');
         }
         const data = await response.json();
-        setMedicaments(data); // Assurez-vous que `data` contient la liste des médicaments
+        // Mise à jour des médicaments du jour et de la semaine
+        setMedsToday(data.medsOfDay || []); // Utiliser medsOfDay depuis l'API
+        setMedsThisWeek(data.medsOfWeek || []); // Utiliser medsOfWeek depuis l'API
       } catch (error) {
         console.error('Erreur:', error);
       } finally {
@@ -39,6 +43,7 @@ const MedicamentListScreen = () => {
   const handleGoBack = () => {
     navigation.goBack();
   };
+
   const formatDate = (dateString) => {
     const options = { year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', hour12: false };
     return new Date(dateString).toLocaleString('fr-FR', options);
@@ -72,15 +77,33 @@ const MedicamentListScreen = () => {
 
   return (
     <View style={styles.container}>
-        <TouchableOpacity style={styles.backButtonWrapper} onPress={handleGoBack}>
+      <TouchableOpacity style={styles.backButtonWrapper} onPress={handleGoBack}>
         <Ionicons name={'arrow-back-outline'} color={colors.primary} size={25} />
       </TouchableOpacity>
-      <Text style={styles.heading}>Mes Médicaments</Text>
-      <FlatList
-        data={medicaments}
-        renderItem={renderMedicament}
-        keyExtractor={(item) => item._id} // Utilisez _id pour les clés uniques
-      />
+
+      {/* Médicaments du jour */}
+      <Text style={styles.heading}>Médicaments a prendre aujourdhui</Text>
+      {medsToday.length > 0 ? (
+        <FlatList
+          data={medsToday}
+          renderItem={renderMedicament}
+          keyExtractor={(item) => item._id}
+        />
+      ) : (
+        <Text style={styles.noDataText}>Aucun médicament pour aujourd'hui.</Text>
+      )}
+
+      {/* Médicaments de la semaine */}
+      <Text style={styles.heading}>Médicaments pour le reste de la semaine</Text>
+      {medsThisWeek.length > 0 ? (
+        <FlatList
+          data={medsThisWeek}
+          renderItem={renderMedicament}
+          keyExtractor={(item) => item._id}
+        />
+      ) : (
+        <Text style={styles.noDataText}>Aucun médicament pour le reste de la semaine.</Text>
+      )}
     </View>
   );
 };
@@ -117,6 +140,13 @@ const styles = StyleSheet.create({
     borderRadius: 20,
     justifyContent: 'center',
     alignItems: 'center',
+  },
+  noDataText: {
+    fontSize: 16,
+    color: colors.gray,
+    fontStyle: 'italic',
+    textAlign: 'center',
+    marginVertical: 10,
   },
 });
 
