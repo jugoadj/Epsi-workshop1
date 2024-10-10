@@ -68,8 +68,6 @@ import {
   
     return (
       <View style={styles.container}>
-              <Image source={require("../assets/logo.png")} style={styles.logo} />
-
         <Text style={styles.headingText}>Validation du compte</Text>
         
         <View style={styles.formContainer}>
