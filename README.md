@@ -67,8 +67,6 @@ Notifications : Push, SMS
         <td><img src="./frontdebut/src/assets/img2.jpg" alt="Image 2" style="width: 100%; max-width: 200px; height: auto;"></td>
         <td><img src="./frontdebut/src/assets/img3.jpg" alt="Image 3" style="width: 100%; max-width: 200px; height: auto;"></td>
     </tr>
-    <tr>
         <td><img src="./frontdebut/src/assets/img7.jpg" alt="Image 1" style="width: 100%; max-width: 200px; height: auto;"></td>
         
-    </tr>
 </table>
